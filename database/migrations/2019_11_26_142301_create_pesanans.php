@@ -16,6 +16,7 @@ class CreatePesanans extends Migration
         Schema::create('pesanans', function (Blueprint $table) {
             $table->bigIncrements('id_pesanan');
             $table->timestamp('tanggal_pesanan');
+            $table->string('nama_homestay');
             $table->bigInteger('total_harga');
             $table->date('tanggal_masuk');
             $table->date('tanggal_keluar');
