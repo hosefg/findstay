@@ -90,7 +90,7 @@
                     @foreach ($homestay as $h)
           		<div class="col-md-4 ftco-animate">
 		    				<div class="destination">
-		    					<a href="hotel-single.html" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(<?= $h->foto_homestay ?> );">
+		    					<a href="homestay/{{$h->id_homestay}}/single" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(<?= $h->foto_homestay ?> );">
 		    						<div class="icon d-flex justify-content-center align-items-center">
                                 <span class="icon-search2"></span>
 
@@ -101,7 +101,7 @@
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
-				    						<h2><a href="hotel-single.html"><?= $h->nama_homestay ?> </a></h3>
+				    						<h2><a href="homestay/{{$h->id_homestay}}/single"><?= $h->nama_homestay ?> </a></h3>
 				    						<h3><span class="price per-price">Rp <?= $h->harga_homestay  ?> <small>/night</small></span></h3>
 			    						</div>
 

@@ -182,43 +182,45 @@
                       <div id="myMap"></div>
 
                   </div>
-                  <?php
-                        // Set your Merchant Server Key
-                        \Midtrans\Config::$serverKey = 'SB-Mid-server-vg9xdjx-fHJrfLSkEMVxIEAf';
-                        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-                        \Midtrans\Config::$isProduction = false;
-                        // Set sanitization on (default)
-                        \Midtrans\Config::$isSanitized = true;
-                        // Set 3DS transaction for credit card to true
-                        \Midtrans\Config::$is3ds = true;
-
-                        $params = array(
-                        'transaction_details' => array(
-                         'order_id' => rand(),
-                         'gross_amount' => $homestay->harga_homestay,
-                            )
-                            );
-
-                        $snapToken = \Midtrans\Snap::getSnapToken($params);
-                  ?>
 
           		<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
           			<h4 class="mb-5">Check Availability &amp; Booking</h4>
           			<div class="fields">
-                      <form action="{{url('book_homestay')}}" method="post">
+                      <form
+                      @if(Auth::check())
+                      action="{{url('book_homestay')}}"
+                      method="post"
+                      @else
+                      action="/login_traveler"
+                      method="GET"
+                      @endif
+                      >
                             @csrf
           				<div class="row">
           					<div class="col-md-6">
+                                    @if(Auth::check())
 				              <div class="form-group">
 				                <input type="text" class="form-control" name="nama" value="<?=Auth::user()->nama_depan_wisatawan?> <?=Auth::user()->nama_belakang_wisatawan ?> " placeholder="Name">
-				              </div>
+                              </div>
+                                    @else
+                                    <div class="form-group">
+                                            <input type="text" class="form-control" name="nama"  placeholder="Name">
+                                          </div>
+                                    @endif
+
                           </div>
                                 <input type="hidden" class="form-control" name="nama_homestay" value="<?=$homestay->nama_homestay?>" placeholder="Name">
                                 <input type="hidden" class="form-control" name="total_harga" value="<?=$homestay->harga_homestay?>" placeholder="Name">
 			              <div class="col-md-6">
+                                @if(Auth::check())
 				              <div class="form-group">
 				                <input type="text" class="form-control" value="<?=Auth::user()->email_wisatawan?>" placeholder="Email">
-				              </div>
+                              </div>
+                              @else
+                              <div class="form-group">
+                                    <input type="text" class="form-control"  placeholder="Email">
+                            </div>
+                                @endif
                           </div>
 
 			              <div class="col-md-6">
@@ -322,26 +324,7 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-IGi6jx4lV3_C1YMX"></script>
-    <script type="text/javascript">
-      document.getElementById('pay-button').onclick = function(){
-        // SnapToken acquired from previous step
-        snap.pay('<?=$snapToken?>', {
-          // Optional
-          onSuccess: function(result){
-            /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-          },
-          // Optional
-          onPending: function(result){
-            /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-          },
-          // Optional
-          onError: function(result){
-            /* You may add your own js here, this is just example */ document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
-          }
-        });
-      };
-    </script>
+
   <script src="/js/jquery.min.js"></script>
   <script src="/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="/js/popper.min.js"></script>
