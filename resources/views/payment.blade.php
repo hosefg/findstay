@@ -100,6 +100,7 @@
                         <h6>Nama Homestay   : <?= $pesanan->nama_homestay?></h6>
                         <h6>Tanggal Masuk   : <?= $pesanan->tanggal_masuk?></h6>
                         <h6>Tanggal Keluar  : <?= $pesanan->tanggal_keluar?></h6>
+                        <h6>Total Harga  : Rp <?= $harga_homestay?></h6>
                         <button id="pay-button" class="btn btn-success py-2 px-5">Pay now!</button>
 
                       </div>

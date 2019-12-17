@@ -42,7 +42,6 @@
         <ul class="navbar-nav ml-auto">
             @if(Auth::check())
           <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
           <li class="nav-item"><p class="nav-link"> You're Traveler! </p></li>
           <li class="nav-item cta"><a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -61,7 +60,6 @@
                 </form>
             @else
           <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
           <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
           <li class="nav-item cta"><a href="/login-user" class="nav-link"><span>Log in</span></a></li>
             @endif

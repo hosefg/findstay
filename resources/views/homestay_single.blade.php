@@ -38,7 +38,7 @@
     <?php $longitude = $homestay->longitude_homestay?>
 
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLoMMn99YE6DsmN97AOnzs1G0mcOOpJ9U&callback=initMap">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfAnxT8jNw3fYK_zOvMPQItJvY9GAb0tE&callback=initMap">
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
     </script>
@@ -109,7 +109,6 @@
         <ul class="navbar-nav ml-auto">
                 @if(Auth::check())
                 <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
                 <li class="nav-item"><p class="nav-link"> You're Traveler! </p></li>
                 <li class="nav-item cta"><a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -138,7 +137,7 @@
   </nav>
     <!-- END nav -->
 
-    <div class="hero-wrap js-fullheight" style="background-image: url('/images/bg_5.jpg');">
+    <div class="hero-wrap js-fullheight" style="background-image: url('/images/hotel-1.jpg');">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
